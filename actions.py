@@ -28,6 +28,16 @@ def MoveRight(worm):
     c = worm[0]['Coluna']
     l = worm[0]['Linha']
 
+    l -= 1  # movimento para direita;
+
+    worm.insert(0,{'Coluna': c, 'Linha': l})
+
+    return worm
+#
+def MoveUp(worm):
+    c = worm[0]['Coluna']
+    l = worm[0]['Linha']
+
     c -= 1  # movimento para esquerda;
 
     worm.insert(0,{'Coluna': c, 'Linha': l})
