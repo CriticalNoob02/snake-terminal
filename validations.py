@@ -24,3 +24,23 @@ def EndBody(worm):
     
     return validation
 #
+def EndBoard(worm,board):
+    l = worm[0]['Linha']
+    c = worm[0]['Coluna']
+    
+    extreme = len(board)
+
+    validation = {'Up': True, 'Right': True, 'Bottom': True, 'Left': True}
+
+    if worm[0]['Coluna'] <= 0:
+        validation['Up'] = False
+    elif worm[0]['Linha'] >= extreme:
+        validation['Right'] = False
+    elif worm[0]['Coluna'] >= extreme:
+        validation['Bottom'] = False
+    elif worm[0]['Linha'] <= 0:
+        validation['Left'] = False
+    else:
+        pass
+
+    return validation
