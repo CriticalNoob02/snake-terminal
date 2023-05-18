@@ -32,13 +32,37 @@ def EndBoard(worm,board):
 
     validation = {'Up': True, 'Right': True, 'Bottom': True, 'Left': True}
 
-    if worm[0]['Coluna'] <= 0:
+    if l <= 0:
         validation['Up'] = False
-    elif worm[0]['Linha'] >= extreme:
+    elif c >= extreme:
         validation['Right'] = False
-    elif worm[0]['Coluna'] >= extreme:
+    elif l >= extreme:
         validation['Bottom'] = False
-    elif worm[0]['Linha'] <= 0:
+    elif c <= 0:
+        validation['Left'] = False
+    else:
+        pass
+
+    return validation
+#
+def Feeding(worm, food):
+    l = worm[0]['Linha']
+    c = worm[0]['Coluna']
+
+    up = {'Coluna':c-1 ,'Linha':l }
+    right = {'Coluna':c ,'Linha': l+1 }
+    bottom = {'Coluna':c+1 ,'Linha': l }
+    left = {'Coluna':c ,'Linha': l-1 }
+
+    validation = {'Up': True, 'Right': True, 'Bottom': True, 'Left': True}
+
+    if up == food:
+        validation['Up'] = False
+    elif right == food:
+        validation['Right'] = False
+    elif bottom == food:
+        validation['Bottom'] = False
+    elif left == food:
         validation['Left'] = False
     else:
         pass
