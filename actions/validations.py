@@ -1,5 +1,11 @@
 #
 def EndBody(worm):
+    """Verificação de corpo
+        --
+        Função responsável por verificar se o próximo movimento pode ser as coordenasdas do seu próprio corpo.
+
+        retorna `validação = {'Up': True, 'Right': True, 'Bottom': True, 'Left': True}`
+    """
     l = worm[0]['Linha']
     c = worm[0]['Coluna']
 
@@ -25,6 +31,12 @@ def EndBody(worm):
     return validation
 #
 def EndBoard(worm,board):
+    """Verificação de tabuleiro
+        --
+        Função responsável por verificar se o próximo movimento pode ser o fim do tabuleiro.
+
+        retorna `validação = {'Up': True, 'Right': True, 'Bottom': True, 'Left': True}`
+    """
     l = worm[0]['Linha']
     c = worm[0]['Coluna']
     
@@ -46,6 +58,12 @@ def EndBoard(worm,board):
     return validation
 #
 def Feeding(worm, food):
+    """Verificação de comida
+        --
+        Função responsável por verificar se o próximo movimento pode ser um alimento.
+
+        retorna `validação = {'Up': True, 'Right': True, 'Bottom': True, 'Left': True}`
+    """
     l = worm[0]['Linha']
     c = worm[0]['Coluna']
 
