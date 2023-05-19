@@ -3,10 +3,8 @@ from config.config import *
 from exibition.exibition import Console
 from actions.validations import *
 
-
 print('Digite o tamanho do board')
 value = int(input())
-
 
 # Configurando game;
 mesa = Board(value)
@@ -21,13 +19,13 @@ while not algo:
         value = input().strip()
         match value:
             case 'a':
-                minhoca = Right(minhoca, comida, mesa)
+                minhoca, comida = Left(minhoca, comida, mesa)
             case 'w':
-                minhoca = Up(minhoca, comida, mesa)
+                minhoca, comida = Up(minhoca, comida, mesa)
             case 'd':
-                minhoca = Left(minhoca, comida, mesa)
+                minhoca, comida = Right(minhoca, comida, mesa)
             case 's':
-                minhoca = Bottom(minhoca, comida, mesa)
+                minhoca, comida = Bottom(minhoca, comida, mesa)
             case _:
                 print('Errou')
     except:
