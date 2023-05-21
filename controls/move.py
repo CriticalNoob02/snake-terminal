@@ -10,13 +10,15 @@ def Left(worm, food, board):
 
         retorna: `worm, food`
     """
+    end = True
     validation = EndBoard(worm, board)
+    
     if validation['Left'] == False:
-        pass
+        end = False
 
     validation = EndBody(worm)
     if validation['Left'] == False:
-        pass
+        end = False
     
     validation = Feeding(worm, food)
     if validation['Left'] == False:
@@ -36,13 +38,15 @@ def Right(worm, food, board):
 
         retorna: `worm, food`
     """
+    end = True
     validation = EndBoard(worm, board)
+    
     if validation['Right'] == False:
-        pass
+        end = False
 
     validation = EndBody(worm)
     if validation['Right'] == False:
-        pass
+        end = False
     
     validation = Feeding(worm, food)
     if validation['Right'] == False:
@@ -62,13 +66,14 @@ def Up(worm, food, board):
 
         retorna: `worm, food`
     """
+    end = True
     validation = EndBoard(worm, board)
     if validation['Up'] == False:
-        pass
+        end = False
 
     validation = EndBody(worm)
     if validation['Up'] == False:
-        pass
+        end = False
     
     validation = Feeding(worm, food)
     if validation['Up'] == False:
@@ -88,13 +93,15 @@ def Bottom(worm, food, board):
 
         retorna: `worm, food`
     """
+    end = True
     validation = EndBoard(worm, board)
+    
     if validation['Bottom'] == False:
-        pass
+        end = False
 
     validation = EndBody(worm)
     if validation['Bottom'] == False:
-        pass
+        end = False
     
     validation = Feeding(worm, food)
     if validation['Bottom'] == False:
