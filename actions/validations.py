@@ -44,13 +44,13 @@ def EndBoard(worm,board):
 
     validation = {'Up': True, 'Right': True, 'Bottom': True, 'Left': True}
 
-    if l <= 0:
+    if c <= 0:
         validation['Up'] = False
-    elif c >= extreme:
+    elif l >= (extreme-1):
         validation['Right'] = False
-    elif l >= extreme:
+    elif c >= (extreme-1):
         validation['Bottom'] = False
-    elif c <= 0:
+    elif l <= 0:
         validation['Left'] = False
     else:
         pass
