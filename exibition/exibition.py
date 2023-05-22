@@ -13,9 +13,11 @@ def saveBoard(board, worm):
         l = worm[i]['Linha']
         c = worm[i]['Coluna']
         if i == 0:
-            board[c][l] = [f'O']
+            newStyle, base = ColorsTerminal(0,3,0)
+            board[c][l] = f'| O |'
         else:
-            board[c][l] = ['o']
+            newStyle, base = ColorsTerminal(0,1,0)
+            board[c][l] = f'| o |'
     return board
 #
 def clearBoard(board, worm):
@@ -28,7 +30,8 @@ def clearBoard(board, worm):
     for i in range(len(worm)):
         l = worm[i]['Linha']
         c = worm[i]['Coluna']
-        board[c][l] = ['_']
+        newStyle, base = ColorsTerminal(0,0,3)
+        board[c][l] = f'| _ |'
 
     return board
 #
@@ -42,42 +45,28 @@ def saveFood(board, food):
     # TODO: chamar essa função antes da função saveBoard
     l = food['Linha']
     c = food['Coluna']
-    board[c][l] = ['f']
+    board[c][l] = '| f |'
 
     return board
 #
-def Console(board, worm, food):
+def Console(board, worm, food, end=True):
     """Rederniza o tabuleiro no terminal
         --
         Função responsável por redernizar o tabuleiro dentro do terminal.
 
         retorna: `nada`
     """
-    os.system('clear')
-    board = saveFood(board, food)
-    board = saveBoard(board, worm)
+    if not end:
+        print('Game Over - Perdeu playboy')
+    else: 
+        os.system('clear')
+        board = saveFood(board, food)
+        board = saveBoard(board, worm)
 
-    for i in range(len(board)):
-        print((board[i]))
-        # line = []
-        # for e in range(len(board[i])):
-        #     if board[i][e] == '_':
-        #         newStyle, base = ColorsTerminal(0,0,0)
-        #         line.append(f'{newStyle}_{base}')
-        #     elif board[i][e] == 'f':
-        #         newStyle, base = ColorsTerminal(0,2,0)
-        #         line.append(f'{newStyle}F{base}')
-        #     elif board[i][e] == 'O':
-        #         newStyle, base = ColorsTerminal(0,3,0)
-        #         line.append(f'{newStyle}_{base}')
-        #     elif board[i][e] == 'o':
-        #         newStyle, base = ColorsTerminal(0,7,0)
-        #         line.append(f'{newStyle}_{base}')
-        #     else:
-        #         newStyle, base = ColorsTerminal(0,7,0)
-        #         line.append(f'{newStyle}_{base}')
-        # print(map(str ,line))
+        for line in board:
+            for element in line:
+                print(element, end='',)
+            print()
 
-    board = clearBoard(board, worm)
-    time.sleep(1)
+        board = clearBoard(board, worm)
 #

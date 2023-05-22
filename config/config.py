@@ -11,9 +11,9 @@ def Board(lenth=5):
     for i in range(lenth):
         board.append([])
         for e in range(lenth):
-            board[i].append(['_'])
+            board[i].append('| _ |')
     
-    board[0][0] = ['O']
+    board[0][0] = 'O'
 
     return board
 #
