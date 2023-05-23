@@ -14,10 +14,10 @@ def saveBoard(board, worm):
         c = worm[i]['Coluna']
         if i == 0:
             newStyle, base = ColorsTerminal(0,3,0)
-            board[c][l] = f'| O |'
+            board[c][l] = f'|{newStyle} O {base}|'
         else:
             newStyle, base = ColorsTerminal(0,1,0)
-            board[c][l] = f'| o |'
+            board[c][l] = f'|{newStyle} o {base}|'
     return board
 #
 def clearBoard(board, worm):
@@ -30,8 +30,8 @@ def clearBoard(board, worm):
     for i in range(len(worm)):
         l = worm[i]['Linha']
         c = worm[i]['Coluna']
-        newStyle, base = ColorsTerminal(0,0,3)
-        board[c][l] = f'| _ |'
+        newStyle, base = ColorsTerminal(0, 3, 0)
+        board[c][l] = f'|{newStyle} _ {base}|'
 
     return board
 #
@@ -45,7 +45,8 @@ def saveFood(board, food):
     # TODO: chamar essa função antes da função saveBoard
     l = food['Linha']
     c = food['Coluna']
-    board[c][l] = '| f |'
+    newStyle, base = ColorsTerminal(0, 2, 0)
+    board[c][l] = f'|{newStyle} d {base}|'
 
     return board
 #

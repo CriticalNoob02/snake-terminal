@@ -1,4 +1,5 @@
 import random
+from exibition.colors import ColorsTerminal
 #
 def Board(lenth=5):
     """Gerar tabuleiro
@@ -7,11 +8,12 @@ def Board(lenth=5):
 
         retorna: `board`
     """
+    newStyle, base = ColorsTerminal(0, 3, 0)
     board = []
     for i in range(lenth):
         board.append([])
         for e in range(lenth):
-            board[i].append('| _ |')
+            board[i].append(f'|{newStyle} _ {base}|')
     
     board[0][0] = 'O'
 
