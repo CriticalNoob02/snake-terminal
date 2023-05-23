@@ -27,7 +27,7 @@ def Left(worm, food, board):
 
     worm = MoveLeft(worm)
     worm = Remove(worm)
-    Console(board, worm, food)
+    Console(board, worm, food, end)
 
     return worm, food
 #
@@ -55,7 +55,7 @@ def Right(worm, food, board):
 
     worm = MoveRight(worm)
     worm = Remove(worm)
-    Console(board, worm, food)
+    Console(board, worm, food, end)
 
     return worm, food
 #
@@ -82,7 +82,7 @@ def Up(worm, food, board):
 
     worm = MoveUp(worm)
     worm = Remove(worm)
-    Console(board, worm, food)
+    Console(board, worm, food, end)
 
     return worm, food
 #
@@ -110,7 +110,7 @@ def Bottom(worm, food, board):
 
     worm = MoveBottom(worm)
     worm = Remove(worm)
-    Console(board, worm, food)
+    Console(board, worm, food, end)
 
     return worm, food
 #
